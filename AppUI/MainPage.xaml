@@ -1,14 +1,29 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.MainPage"
-             Title="Ana Sayfa">
+             Title="Ana Sayfa"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <StackLayout Padding="30" Spacing="20" HorizontalOptions="Center">
-        <Label Text="ÖDEV-3" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
-        <Image Source="profile_picture.png" WidthRequest="150" HeightRequest="150"/>
-        <Label x:Name="nameLabel" FontSize="18" HorizontalOptions="Center"/>
-        <Label x:Name="studentNumberLabel" FontSize="16" HorizontalOptions="Center"/>
-        <Label Text="Bartın Üniversitesi Bilgisayar Mühendisliği Bölümü" FontSize="14" HorizontalOptions="Center"/>
+        <Label Text="ÖDEV-3" 
+               FontSize="28" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource LabelTextColor}" />
+        <Image Source="profile_picture.png" 
+               WidthRequest="150" 
+               HeightRequest="150"/>
+        <Label x:Name="nameLabel" 
+               FontSize="18" 
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource LabelTextColor}" />
+        <Label x:Name="studentNumberLabel" 
+               FontSize="16" 
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource LabelTextColor}" />
+        <Label Text="Bartın Üniversitesi Bilgisayar Mühendisliği Bölümü" 
+               FontSize="14" 
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource LabelTextColor}" />
     </StackLayout>
-
 </ContentPage>

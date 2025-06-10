@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.TaskPage"
              Title="Yapılacaklar"
-             BackgroundColor="#121212">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="➕ Ekle" Clicked="OnAddTaskClicked"/>
@@ -13,34 +13,49 @@
         <CollectionView x:Name="lstTasks">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border StrokeThickness="2" Stroke="#333" BackgroundColor="#1E1E1E"
-                            Padding="15" Margin="10" StrokeShape="RoundRectangle 15">
+                    <ViewCell>
+                        <Border StrokeThickness="2" 
+                                Stroke="{DynamicResource BorderStrokeColor}"
+                                BackgroundColor="{DynamicResource BorderBackgroundColor}"
+                                Padding="15" Margin="10" 
+                                StrokeShape="RoundRectangle 15">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnTaskClicked}" CommandParameter="{Binding}"/>
+                            </Border.GestureRecognizers>
 
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OnTaskClicked}" CommandParameter="{Binding}"/>
-                        </Border.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                    <Switch IsToggled="{Binding IsCompleted}" Toggled="OnTaskCompletedChanged"/>
+                                    <Label Text="{Binding Title}" 
+                                           FontAttributes="Bold" 
+                                           FontSize="20" 
+                                           TextColor="{DynamicResource LabelTextColor}"/>
+                                </HorizontalStackLayout>
 
-                        <VerticalStackLayout>
-                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Switch IsToggled="{Binding IsCompleted}" Toggled="OnTaskCompletedChanged"/>
+                                <Label Text="{Binding Details}" 
+                                       IsVisible="{Binding IsExpanded}" 
+                                       FontSize="14" 
+                                       TextColor="{DynamicResource SecondaryLabelTextColor}"/>
+                                <Label Text="{Binding DateTime, StringFormat='Tarih: {0:dd/MM/yyyy HH:mm}'}"
+                                       IsVisible="{Binding IsExpanded}" 
+                                       FontSize="12" 
+                                       TextColor="{DynamicResource SecondaryLabelTextColor}"/>
 
-                                <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="20" TextColor="White"/>
-                            </HorizontalStackLayout>
-
-
-
-                            <Label Text="{Binding Details}" IsVisible="{Binding IsExpanded}" FontSize="14" TextColor="LightGray"/>
-                            <Label Text="{Binding DateTime, StringFormat='Tarih: {0:dd/MM/yyyy HH:mm}'}"
-                                   IsVisible="{Binding IsExpanded}" FontSize="12" TextColor="Gray"/>
-
-                            <HorizontalStackLayout Spacing="10">
-                                <Button Text="Düzenle" CommandParameter="{Binding}" Clicked="OnEditTaskClicked"
-                                        BackgroundColor="#007ACC" TextColor="White"/>
-                                <Button Text="Sil" CommandParameter="{Binding}" Clicked="OnDeleteTaskClicked"
-                                        BackgroundColor="#D32F2F" TextColor="White"/>
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
-                    </Border>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Button Text="Düzenle" 
+                                            CommandParameter="{Binding}" 
+                                            Clicked="OnEditTaskClicked"
+                                            BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                                            TextColor="{DynamicResource ButtonTextColor}"/>
+                                    <Button Text="Sil" 
+                                            CommandParameter="{Binding}" 
+                                            Clicked="OnDeleteTaskClicked"
+                                            BackgroundColor="{DynamicResource CancelButtonBackgroundColor}" 
+                                            TextColor="{DynamicResource ButtonTextColor}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </ViewCell>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

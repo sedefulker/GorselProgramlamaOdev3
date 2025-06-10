@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.WeatherPage"
              Title="Hava Durumu"
-             BackgroundColor="White">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Şehir Ekle" Clicked="OnAddCityClicked" />
@@ -16,28 +17,31 @@
                            Text="{Binding CityName}"
                            FontAttributes="Bold"
                            FontSize="18"
-                           VerticalOptions="Center" />
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource LabelTextColor}"/>
 
                     <Button Grid.Row="0" Grid.Column="1"
                             Text="🔄"
                             CommandParameter="{Binding}"
                             Clicked="OnUpdateClicked"
                             BackgroundColor="Transparent"
-                            BorderColor="Gray"
-                            BorderWidth="1" />
+                            BorderColor="{DynamicResource BorderColor}"
+                            BorderWidth="1"
+                            TextColor="{DynamicResource LabelTextColor}"/>
 
                     <Button Grid.Row="0" Grid.Column="2"
                             Text="❌"
                             CommandParameter="{Binding}"
                             Clicked="OnDeleteClicked"
                             BackgroundColor="Transparent"
-                            BorderColor="Gray"
-                            BorderWidth="1" />
+                            BorderColor="{DynamicResource BorderColor}"
+                            BorderWidth="1"
+                            TextColor="{DynamicResource LabelTextColor}"/>
 
                     <WebView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                              Source="{Binding Url}"
                              HeightRequest="150"
-                             BackgroundColor="White"/>
+                             BackgroundColor="{DynamicResource PageBackgroundColor}"/>
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>

@@ -3,7 +3,14 @@
        xmlns:views="clr-namespace:AppUI"
        x:Class="AppUI.AppShell"
        Title="Ana Menü"
-       FlyoutBehavior="Flyout">
+       FlyoutBehavior="Flyout"
+       Shell.BackgroundColor="{DynamicResource PageBackgroundColor}"
+       Shell.TitleColor="{DynamicResource LabelTextColor}"
+       Shell.ForegroundColor="{DynamicResource LabelTextColor}"
+       Shell.UnselectedColor="{DynamicResource SecondaryLabelTextColor}">
+
+    
+    
 
         <ShellContent Title="Ana Sayfa" Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}" />
         <ShellContent Title="Profil" Route="ProfilePage" ContentTemplate="{DataTemplate views:ProfilePage}" />

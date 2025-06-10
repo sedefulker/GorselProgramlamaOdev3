@@ -1,17 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:AppUI"
              x:Class="AppUI.App">
-
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <!-- Renk ve stil dosyalarını çağırıyoruz -->
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <!-- Açık Tema (Light Mode) için varsayılan değerler -->
+            <Color x:Key="PageBackgroundColor">White</Color>
+            <Color x:Key="LabelTextColor">Black</Color>
+            <Color x:Key="ButtonBackgroundColor">#007ACC</Color>
+            <Color x:Key="ButtonTextColor">White</Color>
+            <Color x:Key="EntryBackgroundColor">White</Color>
+            <Color x:Key="EntryTextColor">Black</Color>
+            <Color x:Key="BorderBackgroundColor">#1E1E1E</Color>
+            <Color x:Key="BorderStrokeColor">#333333</Color>
+            <Color x:Key="CancelButtonBackgroundColor">#D32F2F</Color>
+            <Color x:Key="SecondaryLabelTextColor">Gray</Color>
+            <Color x:Key="BorderColor">Gray</Color>
         </ResourceDictionary>
     </Application.Resources>
-
 </Application>

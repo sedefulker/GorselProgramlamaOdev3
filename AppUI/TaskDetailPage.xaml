@@ -1,26 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.TaskDetailPage"
              Title="Görev Detayı"
-             BackgroundColor="#121212">
-    <!-- 🔥 Koyu arka plan -->
-
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
     <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Görev Bilgileri" FontAttributes="Bold" FontSize="24" TextColor="White"/>
-        <Entry x:Name="titleEntry" Placeholder="Başlık" TextColor="White" BackgroundColor="#1E1E1E"/>
-        <Editor x:Name="detailsEditor" Placeholder="Açıklama" HeightRequest="100" TextColor="White"
-                BackgroundColor="#1E1E1E"/>
-        <DatePicker x:Name="datePicker" TextColor="White"/>
-        <TimePicker x:Name="timePicker" TextColor="White"/>
-
+        <Label Text="Görev Bilgileri" 
+               FontAttributes="Bold" 
+               FontSize="24" 
+               TextColor="{DynamicResource LabelTextColor}"/>
+        <Entry x:Name="titleEntry" 
+               Placeholder="Başlık" 
+               TextColor="{DynamicResource EntryTextColor}" 
+               BackgroundColor="{DynamicResource EntryBackgroundColor}"/>
+        <Editor x:Name="detailsEditor" 
+                Placeholder="Açıklama" 
+                HeightRequest="100" 
+                TextColor="{DynamicResource EntryTextColor}"
+                BackgroundColor="{DynamicResource EntryBackgroundColor}"/>
+        <DatePicker x:Name="datePicker" 
+                    TextColor="{DynamicResource LabelTextColor}"/>
+        <TimePicker x:Name="timePicker" 
+                    TextColor="{DynamicResource LabelTextColor}"/>
         <HorizontalStackLayout>
-            <Button Text="Kaydet" Clicked="OnSaveTaskClicked"
-                    BackgroundColor="#007ACC" TextColor="White"/>
-            <!-- 🔥 Mavi buton -->
-            <Button Text="İptal" Clicked="OnCancelClicked"
-                    BackgroundColor="#D32F2F" TextColor="White"/>
-            <!-- 🔥 Kırmızı buton -->
+            <Button Text="Kaydet" 
+                    Clicked="OnSaveTaskClicked"
+                    BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                    TextColor="{DynamicResource ButtonTextColor}"/>
+            <Button Text="İptal" 
+                    Clicked="OnCancelClicked"
+                    BackgroundColor="{DynamicResource CancelButtonBackgroundColor}" 
+                    TextColor="{DynamicResource ButtonTextColor}"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
