@@ -1,0 +1,17 @@
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:AppUI"
+       x:Class="AppUI.AppShell"
+       Title="Ana Menü"
+       FlyoutBehavior="Flyout">
+
+        <ShellContent Title="Ana Sayfa" Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}" />
+        <ShellContent Title="Profil" Route="ProfilePage" ContentTemplate="{DataTemplate views:ProfilePage}" />
+        <ShellContent Title="Kurlar" Route="ExchangeRatesPage" ContentTemplate="{DataTemplate views:ExchangeRatesPage}" />
+        <ShellContent Title="Haberler" Route="NewsPage" ContentTemplate="{DataTemplate views:NewsPage}" />
+        <ShellContent Title="Hava Durumu" Route="WeatherPage" ContentTemplate="{DataTemplate views:WeatherPage}" />
+        <ShellContent Title="Yapılacaklar" Route="TaskPage" ContentTemplate="{DataTemplate views:TaskPage}" />
+        <ShellContent Title="Ayarlar" Route="SettingsPage" ContentTemplate="{DataTemplate views:SettingsPage}" />
+    
+
+</Shell>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUI.NewsPage"
+             Title="Haberler"
+             BackgroundColor="White">
+
+    <StackLayout Spacing="0">
+
+        <!-- Kategori Barı -->
+        <ScrollView Orientation="Horizontal" BackgroundColor="#F0F0F0">
+            <StackLayout x:Name="categoryBar" Orientation="Horizontal" Spacing="6" Padding="10,6"/>
+        </ScrollView>
+
+        <!-- Yükleniyor Göstergesi -->
+        <ActivityIndicator x:Name="busy"
+                           IsVisible="False"
+                           IsRunning="False"
+                           Color="Blue"
+                           HeightRequest="4"
+                           Margin="0,2"/>
+
+        <!-- HABER LİSTESİ -->
+        <ListView x:Name="newsList"
+          HasUnevenRows="True"
+          SeparatorVisibility="Default"
+          SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
+
+                            <!-- HABER GÖRSELİ -->
+                            <Image Source="{Binding ImageUrl}"
+                           WidthRequest="100"
+                           HeightRequest="80"
+                           Aspect="AspectFill"
+                           BackgroundColor="LightGray" />
+
+                            <!-- YAZILAR -->
+                            <StackLayout VerticalOptions="Center" Spacing="4">
+                                <Label Text="{Binding Title}"
+                               FontAttributes="Bold"
+                               FontSize="16"
+                               TextColor="Black"
+                               LineBreakMode="WordWrap"
+                               MaxLines="2" />
+                                <Label Text="{Binding Source}"
+                               FontSize="12"
+                               TextColor="Gray" />
+
+                                <!-- Butonlar -->
+                                <StackLayout Orientation="Horizontal" Spacing="6">
+                                    <Button Text="Detay" TextColor="Blue"
+                                    Clicked="DetailClicked"
+                                    CommandParameter="{Binding .}"
+                                    Padding="4,2"
+                                    FontSize="12"/>
+                                    <Button Text="Paylaş" TextColor="Blue"
+                                    Clicked="ShareClicked"
+                                    CommandParameter="{Binding .}"
+                                    Padding="4,2"
+                                    FontSize="12"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </StackLayout>
+</ContentPage>
