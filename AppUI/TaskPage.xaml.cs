@@ -23,16 +23,15 @@ namespace AppUI
 			LoadTasks();
 		}
 
-		private async void LoadTasks()
+		public async Task LoadTasks()
 		{
 			await _taskManager.LoadUserTasksAsync(_userId);
-			Tasks.Clear();
-			foreach (var task in _taskManager.GetUserTaskList())
-			{
-				Tasks.Add(task);
-			}
-			RefreshUI();
+			Tasks = _taskManager.GetUserTaskList();
+
+			lstTasks.ItemsSource = Tasks;
+			OnPropertyChanged(nameof(Tasks));
 		}
+
 
 		public void RefreshUI()
 		{
@@ -90,5 +89,13 @@ namespace AppUI
 				await _taskManager.UpdateUserTaskAsync(_userId, task);
 			}
 		}
+
+		protected async override void OnAppearing()
+		{
+			base.OnAppearing();
+			await LoadTasks();  // Sayfa her göründüğünde görevleri tekrar yükle
+		}
+
 	}
-	}
+
+}

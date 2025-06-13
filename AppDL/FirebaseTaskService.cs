@@ -49,7 +49,7 @@ namespace AppDL
 			var toUpdate = (await _firebaseClient
 				.Child($"users/{userId}/tasks")
 				.OnceAsync<UserTaskModel>())
-				.FirstOrDefault(x => x.Object.Title == task.Title);
+				.FirstOrDefault(x => x.Object.Id == task.Id); // 🔥 Artık ID ile kontrol ediyoruz!
 
 			if (toUpdate != null)
 			{

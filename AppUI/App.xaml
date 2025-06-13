@@ -1,21 +1,62 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Açık Tema (Light Mode) için varsayılan değerler -->
-            <Color x:Key="PageBackgroundColor">White</Color>
-            <Color x:Key="LabelTextColor">Black</Color>
-            <Color x:Key="ButtonBackgroundColor">#007ACC</Color>
-            <Color x:Key="ButtonTextColor">White</Color>
-            <Color x:Key="EntryBackgroundColor">White</Color>
-            <Color x:Key="EntryTextColor">Black</Color>
-            <Color x:Key="BorderBackgroundColor">#1E1E1E</Color>
-            <Color x:Key="BorderStrokeColor">#333333</Color>
-            <Color x:Key="CancelButtonBackgroundColor">#D32F2F</Color>
-            <Color x:Key="SecondaryLabelTextColor">Gray</Color>
-            <Color x:Key="BorderColor">Gray</Color>
+
+            <!-- Light Theme Colors -->
+            <Color x:Key="LightPageBackgroundColor">White</Color>
+            <Color x:Key="LightLabelTextColor">Black</Color>
+            <Color x:Key="LightSecondaryLabelTextColor">Gray</Color>
+            <Color x:Key="LightButtonBackgroundColor">#DDDDDD</Color>
+            <Color x:Key="LightButtonTextColor">Black</Color>
+            <Color x:Key="LightEntryTextColor">Black</Color>
+            <Color x:Key="LightEntryBackgroundColor">#F5F5F5</Color>
+            <Color x:Key="LightBorderColor">#CCCCCC</Color>
+
+            <!-- Dark Theme Colors -->
+            <Color x:Key="DarkPageBackgroundColor">#121212</Color>
+            <Color x:Key="DarkLabelTextColor">White</Color>
+            <Color x:Key="DarkSecondaryLabelTextColor">LightGray</Color>
+            <Color x:Key="DarkButtonBackgroundColor">#333333</Color>
+            <Color x:Key="DarkButtonTextColor">White</Color>
+            <Color x:Key="DarkEntryTextColor">White</Color>
+            <Color x:Key="DarkEntryBackgroundColor">#1E1E1E</Color>
+            <Color x:Key="DarkBorderColor">#444444</Color>
+
+            <!-- Dynamic Resources -->
+            <AppThemeBinding x:Key="PageBackgroundColor"
+                             Light="{StaticResource LightPageBackgroundColor}"
+                             Dark="{StaticResource DarkPageBackgroundColor}" />
+
+            <AppThemeBinding x:Key="LabelTextColor"
+                             Light="{StaticResource LightLabelTextColor}"
+                             Dark="{StaticResource DarkLabelTextColor}" />
+
+            <AppThemeBinding x:Key="SecondaryLabelTextColor"
+                             Light="{StaticResource LightSecondaryLabelTextColor}"
+                             Dark="{StaticResource DarkSecondaryLabelTextColor}" />
+
+            <AppThemeBinding x:Key="ButtonBackgroundColor"
+                             Light="{StaticResource LightButtonBackgroundColor}"
+                             Dark="{StaticResource DarkButtonBackgroundColor}" />
+
+            <AppThemeBinding x:Key="ButtonTextColor"
+                             Light="{StaticResource LightButtonTextColor}"
+                             Dark="{StaticResource DarkButtonTextColor}" />
+
+            <AppThemeBinding x:Key="EntryTextColor"
+                             Light="{StaticResource LightEntryTextColor}"
+                             Dark="{StaticResource DarkEntryTextColor}" />
+
+            <AppThemeBinding x:Key="EntryBackgroundColor"
+                             Light="{StaticResource LightEntryBackgroundColor}"
+                             Dark="{StaticResource DarkEntryBackgroundColor}" />
+
+            <AppThemeBinding x:Key="BorderColor"
+                             Light="{StaticResource LightBorderColor}"
+                             Dark="{StaticResource DarkBorderColor}" />
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

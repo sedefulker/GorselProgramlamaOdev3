@@ -1,5 +1,4 @@
-﻿
-using AppBL;
+﻿using AppBL;
 using Microsoft.Maui.Controls;
 
 namespace AppUI
@@ -45,7 +44,7 @@ namespace AppUI
 
 		private async void OnNavigateToRegister(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new RegisterPage()); // ✅ Navigation içinde çalışıyor!
+			await Navigation.PushAsync(new RegisterPage()); //  Navigation içinde çalışıyor!
 		}
 	}
 }

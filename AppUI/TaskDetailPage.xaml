@@ -3,33 +3,58 @@
              x:Class="AppUI.TaskDetailPage"
              Title="Görev Detayı"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Görev Bilgileri" 
-               FontAttributes="Bold" 
-               FontSize="24" 
-               TextColor="{DynamicResource LabelTextColor}"/>
-        <Entry x:Name="titleEntry" 
-               Placeholder="Başlık" 
-               TextColor="{DynamicResource EntryTextColor}" 
-               BackgroundColor="{DynamicResource EntryBackgroundColor}"/>
-        <Editor x:Name="detailsEditor" 
-                Placeholder="Açıklama" 
-                HeightRequest="100" 
-                TextColor="{DynamicResource EntryTextColor}"
-                BackgroundColor="{DynamicResource EntryBackgroundColor}"/>
-        <DatePicker x:Name="datePicker" 
-                    TextColor="{DynamicResource LabelTextColor}"/>
-        <TimePicker x:Name="timePicker" 
-                    TextColor="{DynamicResource LabelTextColor}"/>
-        <HorizontalStackLayout>
-            <Button Text="Kaydet" 
-                    Clicked="OnSaveTaskClicked"
-                    BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
-                    TextColor="{DynamicResource ButtonTextColor}"/>
-            <Button Text="İptal" 
-                    Clicked="OnCancelClicked"
-                    BackgroundColor="{DynamicResource CancelButtonBackgroundColor}" 
-                    TextColor="{DynamicResource ButtonTextColor}"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Görev Bilgileri" 
+                   FontAttributes="Bold" 
+                   FontSize="24" 
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource LabelTextColor}" />
+
+            <Entry x:Name="titleEntry"
+                   Placeholder="Görev Başlığı"
+                   FontSize="16"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   PlaceholderColor="Gray" />
+
+            <Editor x:Name="detailsEditor"
+                    Placeholder="Detaylı açıklama..."
+                    HeightRequest="100"
+                    FontSize="14"
+                    BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                    TextColor="{DynamicResource EntryTextColor}"
+                    PlaceholderColor="Gray" />
+
+            <Label Text="Tarih Seçin" 
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource LabelTextColor}" />
+            <DatePicker x:Name="datePicker"
+                        TextColor="{DynamicResource LabelTextColor}" />
+
+            <Label Text="Saat Seçin" 
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource LabelTextColor}" />
+            <TimePicker x:Name="timePicker"
+                        TextColor="{DynamicResource LabelTextColor}" />
+
+            <HorizontalStackLayout Spacing="15" Padding="0,20,0,0" HorizontalOptions="Center">
+                <Button Text="💾 Kaydet"
+                        Clicked="OnSaveTaskClicked"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        CornerRadius="10"
+                        WidthRequest="120"/>
+
+                <Button Text="❌ İptal"
+                        Clicked="OnCancelClicked"
+                        BackgroundColor="#D32F2F"
+                        TextColor="White"
+                        CornerRadius="10"
+                        WidthRequest="120"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

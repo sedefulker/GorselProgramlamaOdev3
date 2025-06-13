@@ -5,6 +5,7 @@ namespace AppEntity
 {
 	public class UserTaskModel : INotifyPropertyChanged
 	{
+		public string Id { get; set; } = string.Empty;
 		private string _title = string.Empty;
 		private string _details = string.Empty;
 		private DateTime _dateTime = DateTime.Now;

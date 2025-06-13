@@ -13,15 +13,11 @@
         </ScrollView>
 
         <!-- Yükleniyor Göstergesi -->
-        <ActivityIndicator x:Name="busy"
-                           IsVisible="False"
-                           IsRunning="False"
-                           Color="{DynamicResource ActivityIndicatorColor}"
-                           HeightRequest="4"
-                           Margin="0,2"/>
+        <ActivityIndicator x:Name="busy" IsRunning="True" IsVisible="True" Color="Blue"/>
 
         <!-- Haber Listesi -->
         <ListView x:Name="newsList"
+                  
                   HasUnevenRows="True"
                   SeparatorVisibility="Default"
                   SelectionMode="None">

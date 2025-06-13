@@ -8,6 +8,20 @@
 		public string Satis { get; set; } = "0.00";
 		public string Fark { get; set; } = "0.00";
 		public string Yon { get; set; } = "";
+
+
+		public string YonRenk
+		{
+			get
+			{
+				if (Yon == "↑")
+					return "#16A34A"; // Yeşil – artış
+				else if (Yon == "↓")
+					return "#DC2626"; // Kırmızı – düşüş
+				else
+					return "#64748B"; // Gri – belirsiz
+			}
+		}
 	}
 
 	// Altın bilgileri için model

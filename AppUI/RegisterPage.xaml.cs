@@ -24,5 +24,10 @@ namespace AppUI
 				await DisplayAlert("Hata", "Kayýt baþarýsýz!", "Tamam");
 			}
 		}
+
+		private async void OnNavigateToLogin(object sender, EventArgs e)
+		{
+			await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+		}
 	}
 }

@@ -1,14 +1,29 @@
-﻿namespace AppUI
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
+
+namespace AppUI
 {
 	public partial class App : Application
 	{
+		public App()
+		{
+			// Tercih edilen temayı uygula
+			var theme = Preferences.Get("AppTheme", "Light");
+			UserAppTheme = theme == "Dark" ? AppTheme.Dark : AppTheme.Light;
+		}
+
 		protected override Window CreateWindow(IActivationState activationState)
 		{
-			// 🔥 Her açılışta giriş zorunlu olacak!
-			Preferences.Set("user_logged_in", false);
-			Preferences.Set("user_id", "");
+			// 🔥 Kullanıcının giriş durumunu kontrol et
+			bool isLoggedIn = Preferences.Get("user_logged_in", false);
+			string userId = Preferences.Get("user_id", "");
 
-			return new Window(new NavigationPage(new LoginPage())); // 🔥 Uygulama açıldığında giriş ekranı göster!
+			// 🔥 Eğer giriş yapılmışsa, doğrudan ana sayfaya yönlendir!
+			Page startPage = isLoggedIn && !string.IsNullOrEmpty(userId)
+				? new AppShell() // 🚀 Eğer AppShell kullanıyorsan!
+				: new NavigationPage(new LoginPage()); // 🚀 Eğer giriş yapılmamışsa LoginPage aç!
+
+			return new Window(new NavigationPage(new LoginPage()));
 		}
 	}
 }

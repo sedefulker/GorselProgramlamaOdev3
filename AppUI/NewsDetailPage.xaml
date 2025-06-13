@@ -15,4 +15,4 @@
 
     <!-- Tam Haber Web Sayfası -->
     <WebView x:Name="webView" />
-</ContentPage>
+</ContentPage> 

@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="AppUI.SettingsPage"
-    Title="Ayarlar"
-    BackgroundColor="{DynamicResource PageBackgroundColor}">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUI.SettingsPage"
+             Title="Tema Ayarları">
+    <StackLayout Padding="20">
+        <Label Text="Tema Seçimi" FontSize="20" />
+        <Switch x:Name="ThemeSwitch" Toggled="OnThemeSwitchToggled"/>
+    </StackLayout>
 
-    <VerticalStackLayout Padding="30" Spacing="20">
-        <Label Text="Tema Ayarları" 
-               FontSize="24" 
-               HorizontalOptions="Center"
-               TextColor="{DynamicResource LabelTextColor}" />
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-            <Label Text="Koyu Tema" 
-                   VerticalOptions="Center" 
-                   FontSize="Medium" 
-                   TextColor="{DynamicResource LabelTextColor}" />
-            <Switch x:Name="themeSwitch" Toggled="TemaSwitch_Toggled" />
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
 </ContentPage>

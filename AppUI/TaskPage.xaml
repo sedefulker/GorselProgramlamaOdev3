@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.TaskPage"
@@ -6,58 +5,67 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="➕ Ekle" Clicked="OnAddTaskClicked"/>
+        <ToolbarItem Text="➕ Ekle" Clicked="OnAddTaskClicked" />
     </ContentPage.ToolbarItems>
 
-    <VerticalStackLayout Padding="15">
-        <CollectionView x:Name="lstTasks">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Border StrokeThickness="2" 
-                                Stroke="{DynamicResource BorderStrokeColor}"
-                                BackgroundColor="{DynamicResource BorderBackgroundColor}"
-                                Padding="15" Margin="10" 
-                                StrokeShape="RoundRectangle 15">
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OnTaskClicked}" CommandParameter="{Binding}"/>
-                            </Border.GestureRecognizers>
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="10">
+            <CollectionView x:Name="lstTasks"
+                            ItemsLayout="VerticalList"
+                            SelectionMode="None"
+                            EmptyView="Henüz hiç görev eklenmemiş.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                                Stroke="{DynamicResource BorderColor}"
+                                StrokeThickness="1"
+                                Margin="0,6"
+                                Padding="15"
+                                StrokeShape="RoundRectangle 16">
 
-                            <VerticalStackLayout>
+                            <VerticalStackLayout Spacing="10">
                                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                    <Switch IsToggled="{Binding IsCompleted}" Toggled="OnTaskCompletedChanged"/>
-                                    <Label Text="{Binding Title}" 
-                                           FontAttributes="Bold" 
-                                           FontSize="20" 
-                                           TextColor="{DynamicResource LabelTextColor}"/>
+                                    <Switch IsToggled="{Binding IsCompleted}" 
+                                            Toggled="OnTaskCompletedChanged" />
+                                    <Label Text="{Binding Title}"
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           TextColor="{DynamicResource LabelTextColor}"
+                                           VerticalOptions="Center" />
                                 </HorizontalStackLayout>
 
-                                <Label Text="{Binding Details}" 
-                                       IsVisible="{Binding IsExpanded}" 
-                                       FontSize="14" 
-                                       TextColor="{DynamicResource SecondaryLabelTextColor}"/>
-                                <Label Text="{Binding DateTime, StringFormat='Tarih: {0:dd/MM/yyyy HH:mm}'}"
-                                       IsVisible="{Binding IsExpanded}" 
-                                       FontSize="12" 
-                                       TextColor="{DynamicResource SecondaryLabelTextColor}"/>
+                                <Label Text="{Binding Details}"
+                                       FontSize="14"
+                                       TextColor="{DynamicResource SecondaryLabelTextColor}"
+                                       LineBreakMode="WordWrap"
+                                       MaxLines="3" />
 
-                                <HorizontalStackLayout Spacing="10">
-                                    <Button Text="Düzenle" 
-                                            CommandParameter="{Binding}" 
+                                <Label Text="{Binding DateTime, StringFormat='Tarih: {0:dd MMM yyyy - HH:mm}'}"
+                                       FontSize="12"
+                                       TextColor="{DynamicResource SecondaryLabelTextColor}" />
+
+                                <HorizontalStackLayout Spacing="12">
+                                    <Button Text="✏️ Düzenle"
                                             Clicked="OnEditTaskClicked"
-                                            BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
-                                            TextColor="{DynamicResource ButtonTextColor}"/>
-                                    <Button Text="Sil" 
-                                            CommandParameter="{Binding}" 
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                                            TextColor="{DynamicResource ButtonTextColor}"
+                                            FontSize="14"
+                                            CornerRadius="8" />
+
+                                    <Button Text="🗑️ Sil"
                                             Clicked="OnDeleteTaskClicked"
-                                            BackgroundColor="{DynamicResource CancelButtonBackgroundColor}" 
-                                            TextColor="{DynamicResource ButtonTextColor}"/>
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="#D32F2F"
+                                            TextColor="White"
+                                            FontSize="14"
+                                            CornerRadius="8" />
                                 </HorizontalStackLayout>
                             </VerticalStackLayout>
                         </Border>
-                    </ViewCell>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

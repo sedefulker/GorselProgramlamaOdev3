@@ -30,15 +30,20 @@ namespace AppUI
 			_task.Details = detailsEditor.Text;
 			_task.DateTime = datePicker.Date.Add(timePicker.Time);
 
-			await _taskManager.AddUserTaskAsync(_userId, _task);
-
-			if (Application.Current.Windows.Count > 0 && Application.Current.Windows[0].Page is TaskPage taskPage)
+			if (string.IsNullOrEmpty(_task.Id)) // 🔥 Eğer yeni görevse, ekle!
 			{
-				if (!taskPage.Tasks.Contains(_task))
-				{
-					taskPage.Tasks.Add(_task);
-				}
-				taskPage.RefreshUI();
+				_task.Id = Guid.NewGuid().ToString();
+				await _taskManager.AddUserTaskAsync(_userId, _task);
+			}
+			else // 🔥 Eğer var olan görevse, güncelle!
+			{
+				await _taskManager.UpdateUserTaskAsync(_userId, _task);
+			}
+
+			// 🔥 Eğer `TaskPage` açıksa, görevleri yeniden yükle!
+			if (Application.Current.MainPage is NavigationPage navPage && navPage.CurrentPage is TaskPage taskPage)
+			{
+				await taskPage.LoadTasks();
 			}
 
 			await Navigation.PopAsync();

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using AppBL;
 using AppEntity;
+using Microsoft.Maui.Controls;
 
 namespace AppUI
 {
@@ -45,5 +46,8 @@ namespace AppUI
 				await DisplayAlert("Hata", $"Veriler alınırken bir hata oluştu: {ex.Message}", "Tamam");
 			}
 		}
+
+		
+
 	}
 }

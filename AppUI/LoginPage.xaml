@@ -1,15 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.LoginPage"
              Title="Oturum Aç">
-    <StackLayout Margin="10" Spacing="10" Padding="30">
-        <Label Text="Email"/>
-        <Entry Placeholder="Email" x:Name="loginEmailEntry" Keyboard="Email" Background="White" TextColor="Black"/>
-        <Label Text="Şifre"/>
-        <Entry Placeholder="Şifre" x:Name="loginPasswordEntry" IsPassword="True" Background="White" TextColor="Black"/>
-        <Button Text="Oturum Aç" Clicked="OnLoginClicked" Background="White"
-                            TextColor="Blue" FontAttributes="Bold" />
-        <Button Text="Hesabım Yok, Kayıt Ol" Clicked="OnNavigateToRegister" Background="White"
-                            TextColor="Blue" FontAttributes="Bold"/>
-    </StackLayout>
+
+    <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15" Margin="20" BackgroundColor="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="10" />
+        </Border.StrokeShape>
+        <StackLayout Spacing="15">
+            <Label Text="Giriş Yap" TextColor="Black" FontAttributes="Bold" FontSize="Medium"/>
+            <Entry Placeholder="Email" x:Name="loginEmailEntry" Keyboard="Email" BackgroundColor="Transparent" TextColor="Black"/>
+
+            <Entry Placeholder="Şifre" x:Name="loginPasswordEntry" IsPassword="True" BackgroundColor="Transparent" TextColor="Black"/>
+
+            <Button Text="Oturum Aç" Clicked="OnLoginClicked" BackgroundColor="#007AFF" TextColor="White" FontAttributes="Bold" CornerRadius="8" HeightRequest="45"/>
+
+            <Button Text="Hesabım Yok, Kayıt Ol" Clicked="OnNavigateToRegister" BackgroundColor="Transparent" TextColor="#007AFF" FontAttributes="Bold" HeightRequest="45"/>
+        </StackLayout>
+    </Border>
+
+
 </ContentPage>

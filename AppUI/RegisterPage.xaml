@@ -3,14 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.RegisterPage"
              Title="Kayıt Ol">
-    
-    <StackLayout Margin="10" Spacing="10" Padding="30">
-        <Label Text="Kullanıcı Adı"/>
-        <Entry Placeholder="Kullanıcı Adı" x:Name="usernameEntry" Background="White" TextColor="Black"/>
-        <Label Text="Email"/>
-        <Entry Placeholder="Email" x:Name="emailEntry" Keyboard="Email" Background="White" TextColor="Black"/>
-        <Label Text="Şifre"/>
-        <Entry Placeholder="Şifre" x:Name="passwordEntry" IsPassword="True" Background="White" TextColor="Black"/>
-        <Button Text="Kaydol" Clicked="OnRegisterClicked"  Background="White" TextColor="Blue" FontAttributes="Bold"/>
-    </StackLayout>
+
+    <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15" Margin="20" BackgroundColor="White">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="10" />
+        </Border.StrokeShape>
+
+        <StackLayout Spacing="15">
+            <Label Text="Kaydol" TextColor="Black" FontAttributes="Bold" FontSize="Medium"/>
+            <Entry Placeholder="Kullanıcı Adı" x:Name="usernameEntry" BackgroundColor="Transparent" TextColor="Black"/>
+
+            <Entry Placeholder="Email" x:Name="emailEntry" Keyboard="Email" BackgroundColor="Transparent" TextColor="Black"/>
+
+            <Entry Placeholder="Şifre" x:Name="passwordEntry" IsPassword="True" BackgroundColor="Transparent" TextColor="Black"/>
+
+            <Button Text="Kaydol" Clicked="OnRegisterClicked" BackgroundColor="#007AFF" TextColor="White" FontAttributes="Bold" CornerRadius="8" HeightRequest="45"/>
+        </StackLayout>
+    </Border>
+
 </ContentPage>

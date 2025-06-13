@@ -22,7 +22,7 @@ namespace AppUI
             emailLabel.Text = email;
             nameLabel.Text = username;
 
-            profileImage.Source = "profile_picture.png"; // Kullanýcýnýn profil resmini ekleyebilirsin
+            profileImage.Source = "profile.png"; // Kullanýcýnýn profil resmini ekleyebilirsin
         }
 
         private async void OnLogoutClicked(object sender, EventArgs e)

@@ -4,21 +4,19 @@
        x:Class="AppUI.AppShell"
        Title="Ana Menü"
        FlyoutBehavior="Flyout"
+
        Shell.BackgroundColor="{DynamicResource PageBackgroundColor}"
        Shell.TitleColor="{DynamicResource LabelTextColor}"
        Shell.ForegroundColor="{DynamicResource LabelTextColor}"
-       Shell.UnselectedColor="{DynamicResource SecondaryLabelTextColor}">
+       Shell.UnselectedColor="{DynamicResource LabelTextColor}"
+       Shell.DisabledColor="{DynamicResource LabelTextColor}">
 
-    
-    
+    <ShellContent Title="Ana Sayfa" Route="MainPage" Icon="home.png" ContentTemplate="{DataTemplate views:MainPage}" />
+    <ShellContent Title="Kurlar" Route="ExchangeRatesPage" Icon="currency.png" ContentTemplate="{DataTemplate views:ExchangeRatesPage}" />
+    <ShellContent Title="Haberler" Route="NewsPage" Icon="news.png" ContentTemplate="{DataTemplate views:NewsPage}" />
+    <ShellContent Title="Hava Durumu" Route="WeatherPage" Icon="weather.png" ContentTemplate="{DataTemplate views:WeatherPage}" />
+    <ShellContent Title="Yapılacaklar" Route="TaskPage" Icon="tasks.png" ContentTemplate="{DataTemplate views:TaskPage}" />
+    <ShellContent Title="Ayarlar" Route="SettingsPage" Icon="settings.png" ContentTemplate="{DataTemplate views:SettingsPage}" />
 
-        <ShellContent Title="Ana Sayfa" Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}" />
-        <ShellContent Title="Profil" Route="ProfilePage" ContentTemplate="{DataTemplate views:ProfilePage}" />
-        <ShellContent Title="Kurlar" Route="ExchangeRatesPage" ContentTemplate="{DataTemplate views:ExchangeRatesPage}" />
-        <ShellContent Title="Haberler" Route="NewsPage" ContentTemplate="{DataTemplate views:NewsPage}" />
-        <ShellContent Title="Hava Durumu" Route="WeatherPage" ContentTemplate="{DataTemplate views:WeatherPage}" />
-        <ShellContent Title="Yapılacaklar" Route="TaskPage" ContentTemplate="{DataTemplate views:TaskPage}" />
-        <ShellContent Title="Ayarlar" Route="SettingsPage" ContentTemplate="{DataTemplate views:SettingsPage}" />
-    
 
 </Shell>

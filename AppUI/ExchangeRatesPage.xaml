@@ -1,14 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.ExchangeRatesPage"
              Title="Güncel Kurlar"
-             BackgroundColor="Black">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <StackLayout Padding="20">
-        <ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="True" Color="White"/>
+        <ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="True" Color="Blue"/>
 
-        <Label Text="Döviz Kurları" FontSize="20" FontAttributes="Bold" TextColor="White" Margin="0,10,0,5"/>
-        <ListView x:Name="currencyListView" BackgroundColor="Black" SeparatorColor="Gray">
+        <Label Text="Döviz Kurları" FontSize="20" FontAttributes="Bold" TextColor="Gray" Margin="0,10,0,5"/>
+
+        <ListView x:Name="currencyListView"
+                  BackgroundColor="{DynamicResource PageBackgroundColor}"
+                  SeparatorColor="#666666">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -20,19 +24,22 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Binding Code}" TextColor="White" FontSize="16"/>
-                            <Label Grid.Column="1" Text="{Binding Alis}" TextColor="LightGray" FontSize="16" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Column="2" Text="{Binding Satis}" TextColor="LightGray" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Code}" TextColor="Gray" FontSize="16"/>
+                            <Label Grid.Column="1" Text="{Binding Alis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" Text="{Binding Satis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="3" Text="{Binding Fark}" TextColor="Orange" FontSize="16" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Column="4" Text="{Binding Yon}" TextColor="White" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" Text="{Binding Yon}" TextColor="{Binding YonRenk}" FontSize="16" HorizontalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label Text="Altın Fiyatları" FontSize="20" FontAttributes="Bold" TextColor="White" Margin="0,20,0,5"/>
-        <ListView x:Name="goldListView" BackgroundColor="Black" SeparatorColor="Gray">
+        <Label Text="Altın Fiyatları" FontSize="20" FontAttributes="Bold" TextColor="Gray" Margin="0,20,0,5"/>
+
+        <ListView x:Name="goldListView"
+                  BackgroundColor="{DynamicResource PageBackgroundColor}"
+                  SeparatorColor="#666666">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -43,9 +50,9 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Binding Code}" TextColor="White" FontSize="16"/>
-                            <Label Grid.Column="1" Text="{Binding Alis}" TextColor="LightGray" FontSize="16" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Column="2" Text="{Binding Satis}" TextColor="LightGray" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Code}" TextColor="Gray" FontSize="16"/>
+                            <Label Grid.Column="1" Text="{Binding Alis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" Text="{Binding Satis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="3" Text="{Binding Degisim}" TextColor="Orange" FontSize="16" HorizontalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
