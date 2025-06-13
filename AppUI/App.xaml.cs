@@ -14,16 +14,26 @@ namespace AppUI
 
 		protected override Window CreateWindow(IActivationState activationState)
 		{
-			// 🔥 Kullanıcının giriş durumunu kontrol et
+			// Kullanıcının giriş durumunu kontrol et
 			bool isLoggedIn = Preferences.Get("user_logged_in", false);
 			string userId = Preferences.Get("user_id", "");
 
-			// 🔥 Eğer giriş yapılmışsa, doğrudan ana sayfaya yönlendir!
-			Page startPage = isLoggedIn && !string.IsNullOrEmpty(userId)
-				? new AppShell() // 🚀 Eğer AppShell kullanıyorsan!
-				: new NavigationPage(new LoginPage()); // 🚀 Eğer giriş yapılmamışsa LoginPage aç!
+			Page startPage;
 
-			return new Window(new NavigationPage(new LoginPage()));
+			if (isLoggedIn && !string.IsNullOrEmpty(userId))
+			{
+				// Giriş yapıldıysa ana sayfaya yönlendir
+				startPage = new AppShell(); // Veya MainPage gibi bir sayfa
+			}
+			else
+			{
+				// Giriş yapılmamışsa LoginPage göster
+				startPage = new LoginPage();
+			}
+
+			return new Window(new NavigationPage(startPage));
 		}
+
+
 	}
 }
