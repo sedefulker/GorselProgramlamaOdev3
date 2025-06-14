@@ -5,14 +5,19 @@
              Title="Hava Durumu"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
+    <!-- Sayfanın sağ üst köşesinde şehir ekleme butonu -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Şehir Ekle" Clicked="OnAddCityClicked" />
     </ContentPage.ToolbarItems>
 
+    <!-- Şehirlerin listelendiği CollectionView -->
     <CollectionView x:Name="cityList" Margin="10">
         <CollectionView.ItemTemplate>
             <DataTemplate>
+                <!-- Her şehir için 2 satır ve 3 sütundan oluşan Grid -->
                 <Grid RowDefinitions="*,*" ColumnDefinitions="*,Auto,Auto" Padding="5">
+
+                    <!-- Şehir adı -->
                     <Label Grid.Row="0" Grid.Column="0"
                            Text="{Binding CityName}"
                            FontAttributes="Bold"
@@ -20,6 +25,7 @@
                            VerticalOptions="Center"
                            TextColor="{DynamicResource LabelTextColor}"/>
 
+                    <!-- Güncelleme butonu -->
                     <Button Grid.Row="0" Grid.Column="1"
                             Text="🔄"
                             CommandParameter="{Binding}"
@@ -29,6 +35,7 @@
                             BorderWidth="1"
                             TextColor="{DynamicResource LabelTextColor}"/>
 
+                    <!-- Silme butonu -->
                     <Button Grid.Row="0" Grid.Column="2"
                             Text="❌"
                             CommandParameter="{Binding}"
@@ -38,6 +45,7 @@
                             BorderWidth="1"
                             TextColor="{DynamicResource LabelTextColor}"/>
 
+                    <!-- Hava durumu bilgilerini gösteren WebView -->
                     <WebView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                              Source="{Binding Url}"
                              HeightRequest="150"

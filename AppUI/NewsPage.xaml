@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Haberler sayfası -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.NewsPage"
@@ -7,43 +8,54 @@
 
     <StackLayout Spacing="0">
 
-        <!-- Kategori Barı -->
+        <!-- Kategori barı: yatay scrollable butonlar için -->
         <ScrollView Orientation="Horizontal" BackgroundColor="{DynamicResource CategoryBarBackgroundColor}">
             <StackLayout x:Name="categoryBar" Orientation="Horizontal" Spacing="6" Padding="10,6"/>
         </ScrollView>
 
-        <!-- Yükleniyor Göstergesi -->
+        <!-- Yükleniyor göstergesi -->
         <ActivityIndicator x:Name="busy" IsRunning="True" IsVisible="True" Color="Blue"/>
 
-        <!-- Haber Listesi -->
+        <!-- Haberlerin listelendiği alan -->
         <ListView x:Name="newsList"
-                  
                   HasUnevenRows="True"
                   SeparatorVisibility="Default"
                   SelectionMode="None">
+
+            <!-- Liste elemanları için şablon -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+
+                        <!-- Her haber için yatay düzen -->
                         <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
-                            <!-- Haber Görseli -->
+
+                            <!-- Haber görseli -->
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="100"
                                    HeightRequest="80"
                                    Aspect="AspectFill"
                                    BackgroundColor="{DynamicResource BorderBackgroundColor}" />
-                            <!-- Yazılar -->
+
+                            <!-- Metin ve butonlar -->
                             <StackLayout VerticalOptions="Center" Spacing="4">
+
+                                <!-- Haber başlığı -->
                                 <Label Text="{Binding Title}"
                                        FontAttributes="Bold"
                                        FontSize="16"
                                        TextColor="{DynamicResource LabelTextColor}"
                                        LineBreakMode="WordWrap"
                                        MaxLines="2" />
+
+                                <!-- Kaynak etiketi -->
                                 <Label Text="{Binding Source}"
                                        FontSize="12"
                                        TextColor="{DynamicResource SecondaryLabelTextColor}" />
-                                <!-- Butonlar -->
+
+                                <!-- Detay ve paylaş butonları -->
                                 <StackLayout Orientation="Horizontal" Spacing="6">
+
                                     <Button Text="Detay" 
                                             TextColor="{DynamicResource ButtonTextColor}"
                                             BackgroundColor="{DynamicResource ButtonBackgroundColor}"
@@ -51,6 +63,7 @@
                                             CommandParameter="{Binding .}"
                                             Padding="4,2"
                                             FontSize="12"/>
+
                                     <Button Text="Paylaş" 
                                             TextColor="{DynamicResource ButtonTextColor}"
                                             BackgroundColor="{DynamicResource ButtonBackgroundColor}"
@@ -59,8 +72,10 @@
                                             Padding="4,2"
                                             FontSize="12"/>
                                 </StackLayout>
+
                             </StackLayout>
                         </StackLayout>
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

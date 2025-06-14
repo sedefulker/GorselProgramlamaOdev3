@@ -1,18 +1,22 @@
+<!-- Görev detay sayfası -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.TaskDetailPage"
              Title="Görev Detayı"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
+    <!-- Kaydırılabilir içerik -->
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
+            <!-- Başlık etiketi -->
             <Label Text="Görev Bilgileri" 
                    FontAttributes="Bold" 
                    FontSize="24" 
                    HorizontalOptions="Center"
                    TextColor="{DynamicResource LabelTextColor}" />
 
+            <!-- Görev başlığı için giriş alanı -->
             <Entry x:Name="titleEntry"
                    Placeholder="Görev Başlığı"
                    FontSize="16"
@@ -20,6 +24,7 @@
                    TextColor="{DynamicResource EntryTextColor}"
                    PlaceholderColor="Gray" />
 
+            <!-- Görev açıklaması için editör -->
             <Editor x:Name="detailsEditor"
                     Placeholder="Detaylı açıklama..."
                     HeightRequest="100"
@@ -28,19 +33,28 @@
                     TextColor="{DynamicResource EntryTextColor}"
                     PlaceholderColor="Gray" />
 
+            <!-- Tarih seçimi etiketi -->
             <Label Text="Tarih Seçin" 
                    FontAttributes="Bold"
                    TextColor="{DynamicResource LabelTextColor}" />
+
+            <!-- Tarih seçici -->
             <DatePicker x:Name="datePicker"
                         TextColor="{DynamicResource LabelTextColor}" />
 
+            <!-- Saat seçimi etiketi -->
             <Label Text="Saat Seçin" 
                    FontAttributes="Bold"
                    TextColor="{DynamicResource LabelTextColor}" />
+
+            <!-- Saat seçici -->
             <TimePicker x:Name="timePicker"
                         TextColor="{DynamicResource LabelTextColor}" />
 
+            <!-- Kaydet ve iptal butonları -->
             <HorizontalStackLayout Spacing="15" Padding="0,20,0,0" HorizontalOptions="Center">
+
+                <!-- Kaydet butonu -->
                 <Button Text="💾 Kaydet"
                         Clicked="OnSaveTaskClicked"
                         BackgroundColor="{DynamicResource ButtonBackgroundColor}"
@@ -48,6 +62,7 @@
                         CornerRadius="10"
                         WidthRequest="120"/>
 
+                <!-- İptal butonu -->
                 <Button Text="❌ İptal"
                         Clicked="OnCancelClicked"
                         BackgroundColor="#D32F2F"
@@ -55,6 +70,7 @@
                         CornerRadius="10"
                         WidthRequest="120"/>
             </HorizontalStackLayout>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

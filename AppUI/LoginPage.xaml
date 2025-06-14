@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- Giriş ekranı sayfası -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.LoginPage"
              Title="Oturum Aç">
 
+    <!-- Sayfa içeriğini çevreleyen kenarlıklı kutu -->
     <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15" Margin="20" BackgroundColor="White">
         <Border.StrokeShape>
+            <!-- Kenarları yuvarlatılmış dikdörtgen -->
             <RoundRectangle CornerRadius="10" />
         </Border.StrokeShape>
+
+        <!-- Form elemanlarını dikey olarak sıralayan düzen -->
         <StackLayout Spacing="15">
+
+            <!-- Giriş başlığı -->
             <Label Text="Giriş Yap" TextColor="Black" FontAttributes="Bold" FontSize="Medium"/>
+
+            <!-- E-posta giriş alanı -->
             <Entry Placeholder="Email" x:Name="loginEmailEntry" Keyboard="Email" BackgroundColor="Transparent" TextColor="Black"/>
 
+            <!-- Şifre giriş alanı -->
             <Entry Placeholder="Şifre" x:Name="loginPasswordEntry" IsPassword="True" BackgroundColor="Transparent" TextColor="Black"/>
 
+            <!-- Oturum açma butonu -->
             <Button Text="Oturum Aç" Clicked="OnLoginClicked" BackgroundColor="#007AFF" TextColor="White" FontAttributes="Bold" CornerRadius="8" HeightRequest="45"/>
 
+            <!-- Kayıt sayfasına yönlendirme butonu -->
             <Button Text="Hesabım Yok, Kayıt Ol" Clicked="OnNavigateToRegister" BackgroundColor="Transparent" TextColor="#007AFF" FontAttributes="Bold" HeightRequest="45"/>
+
         </StackLayout>
     </Border>
-
 
 </ContentPage>

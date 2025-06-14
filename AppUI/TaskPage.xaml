@@ -1,21 +1,30 @@
+<!-- Yapılacaklar (Task) sayfası -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppUI.TaskPage"
              Title="Yapılacaklar"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
+    <!-- Sağ üst köşede "Ekle" butonu -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="➕ Ekle" Clicked="OnAddTaskClicked" />
     </ContentPage.ToolbarItems>
 
+    <!-- Sayfa içeriğini kaydırılabilir hale getirir -->
     <ScrollView>
         <VerticalStackLayout Padding="15" Spacing="10">
+
+            <!-- Görevlerin listelendiği alan -->
             <CollectionView x:Name="lstTasks"
                             ItemsLayout="VerticalList"
                             SelectionMode="None"
                             EmptyView="Henüz hiç görev eklenmemiş.">
+
+                <!-- Her görev için şablon -->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+
+                        <!-- Her görev için çerçeve -->
                         <Border BackgroundColor="{DynamicResource EntryBackgroundColor}"
                                 Stroke="{DynamicResource BorderColor}"
                                 StrokeThickness="1"
@@ -23,10 +32,15 @@
                                 Padding="15"
                                 StrokeShape="RoundRectangle 16">
 
+                            <!-- Görev içeriği -->
                             <VerticalStackLayout Spacing="10">
+
+                                <!-- Başlık ve tamamlama durumu -->
                                 <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                    <!-- Görev tamamlandı mı -->
                                     <Switch IsToggled="{Binding IsCompleted}" 
                                             Toggled="OnTaskCompletedChanged" />
+                                    <!-- Görev başlığı -->
                                     <Label Text="{Binding Title}"
                                            FontAttributes="Bold"
                                            FontSize="18"
@@ -34,17 +48,21 @@
                                            VerticalOptions="Center" />
                                 </HorizontalStackLayout>
 
+                                <!-- Görev açıklaması -->
                                 <Label Text="{Binding Details}"
                                        FontSize="14"
                                        TextColor="{DynamicResource SecondaryLabelTextColor}"
                                        LineBreakMode="WordWrap"
                                        MaxLines="3" />
 
+                                <!-- Görev tarihi ve saati -->
                                 <Label Text="{Binding DateTime, StringFormat='Tarih: {0:dd MMM yyyy - HH:mm}'}"
                                        FontSize="12"
                                        TextColor="{DynamicResource SecondaryLabelTextColor}" />
 
+                                <!-- Düzenle ve sil butonları -->
                                 <HorizontalStackLayout Spacing="12">
+                                    <!-- Düzenle butonu -->
                                     <Button Text="✏️ Düzenle"
                                             Clicked="OnEditTaskClicked"
                                             CommandParameter="{Binding}"
@@ -53,6 +71,7 @@
                                             FontSize="14"
                                             CornerRadius="8" />
 
+                                    <!-- Sil butonu -->
                                     <Button Text="🗑️ Sil"
                                             Clicked="OnDeleteTaskClicked"
                                             CommandParameter="{Binding}"
@@ -61,11 +80,14 @@
                                             FontSize="14"
                                             CornerRadius="8" />
                                 </HorizontalStackLayout>
+
                             </VerticalStackLayout>
                         </Border>
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
