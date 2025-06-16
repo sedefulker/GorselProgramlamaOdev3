@@ -39,7 +39,7 @@ namespace AppUI
 				categoryBar.Children.Add(btn);
 			}
 
-			// Varsayýlan olarak "Manþet" kategorisini yükle
+			// Varsayýlan olarak "Manþet" kategorisini yükle  
 			var defaultBtn = categoryBar.Children
 				.OfType<Button>()
 				.FirstOrDefault(b => (string)b.CommandParameter == "Manþet");
