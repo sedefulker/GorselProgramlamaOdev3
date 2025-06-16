@@ -1,4 +1,5 @@
-﻿using AppBL;
+﻿
+using AppBL;
 using Microsoft.Maui.Controls;
 
 namespace AppUI
@@ -33,7 +34,7 @@ namespace AppUI
 				Preferences.Set("user_id", user.Id);
 
 				// 🔥 Kullanıcı giriş yaptıktan sonra uygulamanın ana kısmına yönlendir!
-				Application.Current.MainPage = new AppShell(); // 🚀 Eğer AppShell kullanıyorsan!
+				Application.Current.MainPage = new AppShell(); //  Eğer AppShell kullanıyorsan!
 															   // Application.Current.MainPage = new MainPage(); // 🚀 Eğer Ana Sayfa kullanıyorsan!
 			}
 			else

@@ -5,22 +5,22 @@
         <ResourceDictionary>
 
             <!-- Light Theme Colors -->
-            <Color x:Key="LightPageBackgroundColor">White</Color>
-            <Color x:Key="LightLabelTextColor">Black</Color>
-            <Color x:Key="LightSecondaryLabelTextColor">Gray</Color>
-            <Color x:Key="LightButtonBackgroundColor">#DDDDDD</Color>
-            <Color x:Key="LightButtonTextColor">Black</Color>
-            <Color x:Key="LightEntryTextColor">Black</Color>
-            <Color x:Key="LightEntryBackgroundColor">#F5F5F5</Color>
+            <Color x:Key="LightPageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="LightLabelTextColor">#1E1E1E</Color>
+            <Color x:Key="LightSecondaryLabelTextColor">#5F6368</Color>
+            <Color x:Key="LightButtonBackgroundColor">#E0E0E0</Color>
+            <Color x:Key="LightButtonTextColor">#000000</Color>
+            <Color x:Key="LightEntryTextColor">#000000</Color>
+            <Color x:Key="LightEntryBackgroundColor">#F9F9F9</Color>
             <Color x:Key="LightBorderColor">#CCCCCC</Color>
 
-            <!-- Dark Theme Colors -->
+            <!--  Dark Theme Colors -->
             <Color x:Key="DarkPageBackgroundColor">#121212</Color>
-            <Color x:Key="DarkLabelTextColor">White</Color>
-            <Color x:Key="DarkSecondaryLabelTextColor">LightGray</Color>
-            <Color x:Key="DarkButtonBackgroundColor">#333333</Color>
-            <Color x:Key="DarkButtonTextColor">White</Color>
-            <Color x:Key="DarkEntryTextColor">White</Color>
+            <Color x:Key="DarkLabelTextColor">#FFFFFF</Color>
+            <Color x:Key="DarkSecondaryLabelTextColor">#BBBBBB</Color>
+            <Color x:Key="DarkButtonBackgroundColor">#1F1F1F</Color>
+            <Color x:Key="DarkButtonTextColor">#FFFFFF</Color>
+            <Color x:Key="DarkEntryTextColor">#FFFFFF</Color>
             <Color x:Key="DarkEntryBackgroundColor">#1E1E1E</Color>
             <Color x:Key="DarkBorderColor">#444444</Color>
 

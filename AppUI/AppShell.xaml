@@ -2,14 +2,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:AppUI"
        x:Class="AppUI.AppShell"
-       Title="Ana Menü"
-       FlyoutBehavior="Flyout"
-
-       Shell.BackgroundColor="{DynamicResource PageBackgroundColor}"
-       Shell.TitleColor="{DynamicResource LabelTextColor}"
-       Shell.ForegroundColor="{DynamicResource LabelTextColor}"
-       Shell.UnselectedColor="{DynamicResource LabelTextColor}"
-       Shell.DisabledColor="{DynamicResource LabelTextColor}">
+       FlyoutBehavior="Flyout">
 
     <ShellContent Title="Ana Sayfa" Route="MainPage" Icon="home.png" ContentTemplate="{DataTemplate views:MainPage}" />
     <ShellContent Title="Kurlar" Route="ExchangeRatesPage" Icon="currency.png" ContentTemplate="{DataTemplate views:ExchangeRatesPage}" />

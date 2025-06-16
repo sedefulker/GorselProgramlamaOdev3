@@ -6,7 +6,7 @@
              Title="Oturum Aç">
 
     <!-- Sayfa içeriğini çevreleyen kenarlıklı kutu -->
-    <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15" Margin="20" BackgroundColor="White">
+    <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15" Margin="10"  BackgroundColor="White">
         <Border.StrokeShape>
             <!-- Kenarları yuvarlatılmış dikdörtgen -->
             <RoundRectangle CornerRadius="10" />

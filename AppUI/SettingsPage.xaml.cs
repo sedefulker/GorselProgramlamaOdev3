@@ -12,8 +12,17 @@ namespace AppUI
 
 		private void OnThemeSwitchToggled(object sender, ToggledEventArgs e)
 		{
-			App.Current.UserAppTheme = e.Value ? AppTheme.Light : AppTheme.Dark;
-		}
-	}
+			// Temayý uygula
+			App.Current.UserAppTheme = e.Value ? AppTheme.Dark : AppTheme.Light;
 
+			
+			// AppShell'i yeniden oluþtur
+			Application.Current.MainPage = new AppShell();
+
+			Shell.Current.GoToAsync("//SettingsPage", false);
+		}
+
+
+
+	}
 }

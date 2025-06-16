@@ -28,7 +28,7 @@
                             <Label Grid.Column="1" Text="{Binding Alis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="2" Text="{Binding Satis}" TextColor="#AAAAAA" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Grid.Column="3" Text="{Binding Fark}" TextColor="Orange" FontSize="16" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Column="4" Text="{Binding Yon}" TextColor="{Binding YonRenk}" FontSize="16" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" Text="{Binding Yon}" TextColor="{Binding YonRenk}" FontSize="22" HorizontalTextAlignment="Center"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

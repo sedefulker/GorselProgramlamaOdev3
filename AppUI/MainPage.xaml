@@ -31,7 +31,7 @@
                VerticalOptions="Center"
                StrokeShape="RoundRectangle 75">
            
-            <Image Source="profile.png"
+            <Image Source="profile.jpg"
            Aspect="AspectFill"
            WidthRequest="150"
            HeightRequest="150">
